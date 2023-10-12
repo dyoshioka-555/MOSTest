@@ -47,7 +47,7 @@ function start_experiment() {
     }
 
     // convert display
-    Display()
+    Display();
 
     // read filepath
     var method1_list = wav_dir + "set" + set_num + "/spoken.list";
@@ -61,13 +61,12 @@ function start_experiment() {
     //method3 = loadText(method3_list);
     //method4 = loadText(method4_list);
     outfile = name + "_set" + set_num + ".csv";
-    file_list = makeFileList()
+    file_list = makeFileList();
     slides = loadText(slide_list);
     console.log(file_list);
     scores = (new Array(file_list.length)).fill(0);
     eval = document.getElementsByName("eval");
     init()
-
 }
 
 // convert display
@@ -115,6 +114,7 @@ function setAudio() {
 
 function init() {
     n = 0;
+    setSlide();
     setAudio();
     evalCheck();
     setButton();
@@ -192,6 +192,7 @@ function exportCSV() {
 
 function next() {
     n++;
+    setSlide();
     setAudio();
     evalCheck();
     setButton();
@@ -199,6 +200,7 @@ function next() {
 
 function prev() {
     n--;
+    setSlide();
     setAudio();
     evalCheck();
     setButton();
