@@ -1,11 +1,11 @@
 import os
 import shutil
 
-wav_root = "../wav/"
+wav_root = "wav/"
 METHOD = ["spoken", "written", "slide"]
 SPK = ["f"]
 N_SET = 2
-N_DATA_PER_SPK = 1
+N_DATA_PER_SPK = 2
 
 for n_set in range(N_SET):
     file_paths = []
@@ -25,6 +25,7 @@ for n_set in range(N_SET):
                 for file_path in sorted(files):
                     f.write(file_path + "\n")
         else:
+            files = []
             for n_data in range(N_DATA_PER_SPK):
                 data_number = n_set * N_DATA_PER_SPK + n_data
                 file_path = f"{method}/slide_{data_number:0>4}.pdf"
