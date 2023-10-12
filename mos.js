@@ -173,12 +173,23 @@ function evalCheck_ori() {
 }
 
 function setButton() {
+    var finish_flag = 0;
+    var next_flag = 0;
     if (n == (scores.length - 1)) {
         document.getElementById("prev").disabled = false;
         document.getElementById("next2").disabled = true;
         document.getElementById("finish").disabled = true;
-        for (var i = 0; i < eval.length; i++) {
-            if (eval[i].checked) {
+        for (var i = 0; i < eval1.length; i++) {
+            if (eval1[i].checked) {
+                finish_flag += 1;
+            }
+            if (eval2[i].checked) {
+                finish_flag += 1;
+            }
+            if (eval3[i].checked) {
+                finish_flag += 1;
+            }
+            if (finish_flag >= 3) {
                 document.getElementById("finish").disabled = false;
                 break;
             }
@@ -193,11 +204,22 @@ function setButton() {
         }
         document.getElementById("next2").disabled = true;
         document.getElementById("finish").disabled = true;
-        for (var i = 0; i < eval.length; i++) {
-            if (eval[i].checked) {
+        for (var i = 0; i < eval1.length; i++) {
+            console.log(next_flag);
+            if (eval1[i].checked) {
+                next_flag += 1;
+            }
+            if (eval2[i].checked) {
+                next_flag += 1;
+            }
+            if (eval3[i].checked) {
+                next_flag += 1;
+            }
+            if (next_flag >= 3) {
                 document.getElementById("next2").disabled = false;
                 break;
             }
+            console.log(next_flag);
         }
     }
 }
