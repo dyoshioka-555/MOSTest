@@ -15,7 +15,7 @@
         <h1>MOS Test</h1>
 
         評価実験へのご協力、感謝します。</br>
-        音声を聴いてふさわしいと思う評価を付けてください。</br>
+        スライドを見ながら2種類の音声を聴いて、相応しいと思う評価を付けてください。</br>
         以下、実験の詳細について説明します。
 
 
@@ -24,8 +24,9 @@
         <ol>
             <li>名前を入力し、1か2のセット番号を選んで下さい。</li>
             <li>"Start Experiment"を押して下さい。</li>
-            <li>音声を聴き、相応しいと思った評価を選択して下さい。</li>
-            <li>選択を終えたら"next"ボタンを押し、次の実験に進んで下さい。</li>
+            <li>スライドを見ながら2つの音声をそれぞれ順に聴き、相応しいと思った評価を選択して下さい。</li>
+            <li>各ページに3つの評価項目があります。</li>
+            <li>全ての選択を終えたら"next"ボタンを押し、次の実験に進んで下さい。</li>
             <li>評価実験を全て終えたら"finish"ボタンを押して結果をダウンロードして下さい。<br>
                 結果はSlackか下記のメールアドレスに送信して下さい。</li>
             <li>Emailアドレス: yoshioka.daiki@g.sp.m.is.nagoya-u.ac.jp</font>
@@ -64,13 +65,20 @@
         <p id="audio_spk"></p>
         <p id="audio_wrt"></p>
         <p>
-            <label><input type="radio" name="eval" onclick="evaluation()">Excellent</label><br>
-            <label><input type="radio" name="eval" onclick="evaluation()">Good</label><br>
-            <label><input type="radio" name="eval" onclick="evaluation()">Fair</label><br>
-            <label><input type="radio" name="eval" onclick="evaluation()">Poor</label><br>
-            <label><input type="radio" name="eval" onclick="evaluation()">Bad</label><br>
+            <li>どちらの方が自然な音声でしたか？</li>
+            <label><input type="radio" name="eval1" onclick="evaluation(1)">1の方が良い</label><br>
+            <label><input type="radio" name="eval1" onclick="evaluation(1)">2の方が良い</label><br>
         </p>
-
+        <p>
+            <li>スライドの内容について、どちらの音声を聞いている方が分かりやすかったですか？</li>
+            <label><input type="radio" name="eval2" onclick="evaluation(2)">1の方が良い</label><br>
+            <label><input type="radio" name="eval2" onclick="evaluation(2)">2の方が良い</label><br>
+        </p>
+        <p>
+            <li>スライドの説明音声として相応しいと感じたのはどちらの音声でしたか？</li>
+            <label><input type="radio" name="eval3" onclick="evaluation(3)">1の方が良い</label><br>
+            <label><input type="radio" name="eval3" onclick="evaluation(3)">2の方が良い</label><br>
+        </p>
         <p>
             <button id="prev" onclick="prev()">prev</button>
             <button id="next2" onclick="next()">next</button>

@@ -64,8 +64,12 @@ function start_experiment() {
     file_list = makeFileList();
     slides = loadText(slide_list);
     console.log(file_list);
-    scores = (new Array(file_list.length)).fill(0);
-    eval = document.getElementsByName("eval");
+    scores1 = (new Array(text_list.length)).fill(0);
+    scores2 = (new Array(text_list.length)).fill(0);
+    scores3 = (new Array(text_list.length)).fill(0);
+    eval1 = document.getElementsByName("eval1");
+    eval2 = document.getElementsByName("eval2");
+    eval3 = document.getElementsByName("eval3");
     init()
 }
 
@@ -103,11 +107,11 @@ function setSlide() {
 }
 
 function setAudio() {
-    document.getElementById("audio_spk").innerHTML = 'Voice:<br>'
+    document.getElementById("audio_spk").innerHTML = 'Voice1:<br>'
         + '<audio src="' + file_list[n][0]
         + '" controls preload="auto">'
         + '</audio>';
-    document.getElementById("audio_wrt").innerHTML = 'Voice:<br>'
+    document.getElementById("audio_wrt").innerHTML = 'Voice2:<br>'
         + '<audio src="' + file_list[n][1]
         + '" controls preload="auto">'
         + '</audio>';
@@ -121,8 +125,40 @@ function init() {
     evalCheck();
     setButton();
 }
-
-function evalCheck() {
+function evalCheck1() {
+    const c = scores1[n];
+    if ((c <= 0) || (c > eval1.length)) {
+        for (var i = 0; i < eval1.length; i++) {
+            eval1[i].checked = false;
+        }
+    }
+    else {
+        eval1[c - 1].checked = true;
+    }
+}
+function evalCheck2() {
+    const c = scores2[n];
+    if ((c <= 0) || (c > eval2.length)) {
+        for (var i = 0; i < eval2.length; i++) {
+            eval2[i].checked = false;
+        }
+    }
+    else {
+        eval2[c - 1].checked = true;
+    }
+}
+function evalCheck3() {
+    const c = scores3[n];
+    if ((c <= 0) || (c > eval3.length)) {
+        for (var i = 0; i < eval3.length; i++) {
+            eval3[i].checked = false;
+        }
+    }
+    else {
+        eval3[c - 1].checked = true;
+    }
+}
+function evalCheck_ori() {
     const c = scores[n];
     if ((c <= 0) || (c > eval.length)) {
         for (var i = 0; i < eval.length; i++) {
@@ -164,10 +200,36 @@ function setButton() {
     }
 }
 
-function evaluation() {
+function evaluation(k) {
+    switch (k) {
+        case 1:
+            for (var i = 0; i < eval1.length; i++) {
+                if (eval1[i].checked) {
+                    scores1[n] = i + 1;
+                }
+            }
+            break;
+        case 2:
+            for (var i = 0; i < eval2.length; i++) {
+                if (eval2[i].checked) {
+                    scores2[n] = i + 1;
+                }
+            }
+            break;
+        case 3:
+            for (var i = 0; i < eval3.length; i++) {
+                if (eval3[i].checked) {
+                    scores3[n] = i + 1;
+                }
+            }
+            break;
+    }
+    setButton();
+}
+function evaluation_ori() {
     for (var i = 0; i < eval.length; i++) {
         if (eval[i].checked) {
-            scores[n] = 5 - i;
+            scores[n] = 1 + i;
         }
     }
     setButton();
@@ -177,7 +239,9 @@ function exportCSV() {
     var csvData = "";
     for (var i = 0; i < file_list.length; i++) {
         csvData += "" + file_list[i] + ","
-            + scores[i] + "\r\n";
+            + scores1[i] + ","
+            + scores2[i] + ","
+            + scores3[i] + "\r\n";
     }
 
     const link = document.createElement("a");
@@ -229,8 +293,12 @@ var method2;
 var outfile;
 var slides;
 var file_list;
-var scores;
+var scores1;
+var scores2;
+var scores3;
 
 // ローカルで行う場合はloadText()は動作しないため
 var n = 0;
-var eval = document.getElementsByName("eval");
+var eval1 = document.getElementsByName("eval1");
+var eval2 = document.getElementsByName("eval2");
+var eval3 = document.getElementsByName("eval3");
