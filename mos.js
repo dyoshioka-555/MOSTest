@@ -74,13 +74,15 @@ function Display() {
     document.getElementById("Display1").style.display = "none";
     document.getElementById("Display2").style.display = "block";
 }
-var xhr = new XMLHttpRequest();
-xhr.open("GET", filename, false);
-xhr.send(null);
-var list = xhr.responseText.split(/\r\n|\r|\n/);
-list.pop()
 
-return list;
+function loadText(filename) {
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", filename, false);
+    xhr.send(null);
+    var list = xhr.responseText.split(/\r\n|\r|\n/);
+    list.pop();
+
+    return list;
 }
 
 // make file list
