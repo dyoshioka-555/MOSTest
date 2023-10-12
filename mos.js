@@ -107,11 +107,11 @@ function setSlide() {
 }
 
 function setAudio() {
-    document.getElementById("audio_spk").innerHTML = 'Voice1:<br>'
+    document.getElementById("audio_spk").innerHTML = 'Voice 1:<br>'
         + '<audio src="' + file_list[n][0]
         + '" controls preload="auto">'
         + '</audio>';
-    document.getElementById("audio_wrt").innerHTML = 'Voice2:<br>'
+    document.getElementById("audio_wrt").innerHTML = 'Voice 2:<br>'
         + '<audio src="' + file_list[n][1]
         + '" controls preload="auto">'
         + '</audio>';
@@ -175,7 +175,7 @@ function evalCheck_ori() {
 function setButton() {
     var finish_flag = 0;
     var next_flag = 0;
-    if (n == (scores.length - 1)) {
+    if (n == (scores1.length - 1)) {
         document.getElementById("prev").disabled = false;
         document.getElementById("next2").disabled = true;
         document.getElementById("finish").disabled = true;
