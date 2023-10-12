@@ -9,9 +9,12 @@ Array.prototype.shuffle = function () {
     return this;
 }
 
-const zip = (...arrays) => {
-    const length = Math.min(...(arrays.map(arr => arr.length)))
-    return new Array(length).fill().map((_, i) => arrays.map(arr => arr[i]))
+Array.prototype.zip = function (...args) {
+    const new_array = [];
+    for (let i = 0; i < this.length; i++) {
+        new_array.push([this[i], ...args.map(arg => arg[i])]);
+    }
+    return new_array;
 }
 
 // invalid enter key
@@ -72,10 +75,7 @@ function Display() {
     document.getElementById("Display1").style.display = "none";
     document.getElementById("Display2").style.display = "block";
 }
-const zip = (...arrays) => {
-    const length = Math.min(...(arrays.map(arr => arr.length)))
-    return new Array(length).fill().map((_, i) => arrays.map(arr => arr[i]))
-}  var xhr = new XMLHttpRequest();
+var xhr = new XMLHttpRequest();
 xhr.open("GET", filename, false);
 xhr.send(null);
 var list = xhr.responseText.split(/\r\n|\r|\n/);
@@ -86,7 +86,7 @@ return list;
 
 // make file list
 function makeFileList() {
-    var files = files.zip(method1, method2);
+    var files = method1.zip(method2);
     files.shuffle();
     return files;
 }
