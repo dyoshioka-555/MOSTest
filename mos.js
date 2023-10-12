@@ -64,9 +64,9 @@ function start_experiment() {
     file_list = makeFileList();
     slides = loadText(slide_list);
     console.log(file_list);
-    scores1 = (new Array(text_list.length)).fill(0);
-    scores2 = (new Array(text_list.length)).fill(0);
-    scores3 = (new Array(text_list.length)).fill(0);
+    scores1 = (new Array(file_list.length)).fill(0);
+    scores2 = (new Array(file_list.length)).fill(0);
+    scores3 = (new Array(file_list.length)).fill(0);
     eval1 = document.getElementsByName("eval1");
     eval2 = document.getElementsByName("eval2");
     eval3 = document.getElementsByName("eval3");
@@ -97,7 +97,7 @@ function makeFileList() {
 }
 
 function setSlide() {
-    document.getElementById("page").textContent = "" + (n + 1) + "/" + scores.length;
+    document.getElementById("page").textContent = "" + (n + 1) + "/" + scores1.length;
     document.getElementById("slide").innerHTML = 'Slides:<br>'
         + '<object data="' + slides[n]
         + '" type="application/pdf"'
