@@ -122,7 +122,9 @@ function init() {
     n = 0;
     setSlide();
     setAudio();
-    evalCheck();
+    evalCheck1();
+    evalCheck2();
+    evalCheck3();
     setButton();
 }
 function evalCheck1() {
@@ -260,7 +262,9 @@ function next() {
     n++;
     setSlide();
     setAudio();
-    evalCheck();
+    evalCheck1();
+    evalCheck2();
+    evalCheck3();
     setButton();
 }
 
@@ -268,7 +272,9 @@ function prev() {
     n--;
     setSlide();
     setAudio();
-    evalCheck();
+    evalCheck1();
+    evalCheck2();
+    evalCheck3();
     setButton();
 }
 
