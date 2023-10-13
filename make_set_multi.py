@@ -5,7 +5,7 @@ wav_root = "wav/"
 METHOD = ["spoken", "written", "slide"]
 SPK = ["f"]
 N_SET = 2
-N_DATA_PER_SPK = 2
+N_DATA_PER_SPK = 5
 
 for n_set in range(N_SET):
     file_paths = []
@@ -15,7 +15,7 @@ for n_set in range(N_SET):
             files = []
             for spk in SPK:
                 for n_data in range(N_DATA_PER_SPK):
-                    data_number = n_set * N_DATA_PER_SPK + n_data
+                    data_number = n_data
                     file_path = f"{method}/{spk}_{data_number:0>4}.wav"
                     new_file_path = shutil.copyfile(
                         wav_root + file_path, f"wav/set{n_set + 1}/" + file_path
@@ -27,7 +27,7 @@ for n_set in range(N_SET):
         else:
             files = []
             for n_data in range(N_DATA_PER_SPK):
-                data_number = n_set * N_DATA_PER_SPK + n_data
+                data_number = n_data
                 file_path = f"{method}/slide_{data_number:0>4}.jpg"
                 new_file_path = shutil.copyfile(
                     wav_root + file_path, f"wav/set{n_set + 1}/" + file_path

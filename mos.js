@@ -58,11 +58,11 @@ function start_experiment() {
     //natural = loadText(natural_list);
     method1 = loadText(method1_list);
     method2 = loadText(method2_list);
+    slides = loadText(slide_list);
     //method3 = loadText(method3_list);
     //method4 = loadText(method4_list);
     outfile = name + "_set" + set_num + ".csv";
     file_list = makeFileList();
-    slides = loadText(slide_list);
     console.log(file_list);
     scores1 = (new Array(file_list.length)).fill(0);
     scores2 = (new Array(file_list.length)).fill(0);
@@ -91,7 +91,25 @@ function loadText(filename) {
 
 // make file list
 function makeFileList() {
-    var files = method1.zip(method2);
+    var ori_files = method1.zip(method2, slides);
+    let files = [];
+    for (var i = 0; i < method1.length; i++) {
+        if (set_num % 2) {
+            if (i % 2) {
+                files[i] = ori_files[i];
+            } else {
+                let a = [ori_files[i][1], ori_files[i][0], ori_files[i][2]];
+                files[i] = a;
+            }
+        } else {
+            if (i % 2) {
+                let a = [ori_files[i][1], ori_files[i][0], ori_files[i][2]];
+                files[i] = a;
+            } else {
+                files[i] = ori_files[i];
+            }
+        }
+    }
     files.shuffle();
     return files;
 }
@@ -99,8 +117,8 @@ function makeFileList() {
 function setSlide() {
     document.getElementById("page").textContent = "" + (n + 1) + "/" + scores1.length;
     document.getElementById("slide").innerHTML = 'Slides:<br>'
-        + '<object data="' + slides[n]
-        + '" type="application/pdf"'
+        + '<object data="' + file_list[n][2]
+        + '" type="image/jpeg"'
         + 'width="800px"'
         + 'height="450px">'
         + '</object>';
