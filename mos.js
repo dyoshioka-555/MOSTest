@@ -119,8 +119,8 @@ function setSlide() {
     document.getElementById("slide").innerHTML = 'Slides:<br>'
         + '<object data="' + file_list[n][2]
         + '" type="image/jpeg"'
-        + 'width="800px"'
-        + 'height="450px">'
+        + 'width="720px"'
+        + 'height="540px">'
         + '</object>';
 }
 

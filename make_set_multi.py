@@ -3,7 +3,7 @@ import shutil
 
 wav_root = "wav/"
 METHOD = ["spoken", "written", "slide"]
-SPK = ["f"]
+SPK = ["tts"]
 N_SET = 2
 N_DATA_PER_SPK = 5
 
