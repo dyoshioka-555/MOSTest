@@ -116,7 +116,7 @@ function makeFileList(set_num) {
 
 function setSlide() {
     document.getElementById("page").textContent = "" + (n + 1) + "/" + scores1.length;
-    document.getElementById("slide").innerHTML = 'Slides:<br>'
+    document.getElementById("slide").innerHTML = 'Slide:<br>'
         + '<object data="' + file_list[n][2]
         + '" type="image/jpeg"'
         + 'width="720px"'
