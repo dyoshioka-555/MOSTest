@@ -62,7 +62,7 @@ function start_experiment() {
     //method3 = loadText(method3_list);
     //method4 = loadText(method4_list);
     outfile = name + "_set" + set_num + ".csv";
-    file_list = makeFileList();
+    file_list = makeFileList(set_num);
     console.log(file_list);
     scores1 = (new Array(file_list.length)).fill(0);
     scores2 = (new Array(file_list.length)).fill(0);
@@ -90,7 +90,7 @@ function loadText(filename) {
 }
 
 // make file list
-function makeFileList() {
+function makeFileList(set_num) {
     var ori_files = method1.zip(method2, slides);
     let files = [];
     for (var i = 0; i < method1.length; i++) {
