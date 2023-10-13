@@ -1,4 +1,4 @@
 .DS_Store
-./wav/spoken
-./wav/written
-./wav/slide
+wav/spoken/
+wav/written/
+wav/slide/
